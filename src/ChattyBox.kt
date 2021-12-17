@@ -1,29 +1,63 @@
 import java.util.Scanner
 
+val scanner = Scanner(System.`in`)
 
 fun main() {
-    val scanner = Scanner(System.`in`)
+    greet("Aid", "2020")
+    remindName()
+    guessAge()
+    count()
+    test()
+}
 
-    println("Hello! My name is Aid.")
-    println("I was created in 2020.")
+fun greet(assistantName: String, birthYear: String) {
+    println("Hello! My name is ${assistantName}.")
+    println("I was created in ${birthYear}.")
     println("Please, remind me your name.")
+}
 
-    val yourName = scanner.nextLine()
+fun remindName() {
+    val name = scanner.nextLine()
+    println("What a great name you have, ${name}!")
+}
 
-    println("What a great name you have, $yourName!")
+fun guessAge() {
     println("Let me guess your age.")
     println("Enter remainders of dividing your age by 3, 5 and 7.")
-
-    val remainder3 = scanner.nextInt()
-    val remainder5 = scanner.nextInt()
-    val remainder7 = scanner.nextInt()
-    val yourAge = (remainder3 * 70 + remainder5 * 21 + remainder7 * 15) % 105
-    println("Your age is $yourAge; that's a good time to start programming!")
-    println("Now I will prove to you that I can count to any number you want.")
-
-    val number = scanner.nextInt()
-    for (i in 0..number) {
-        println("$i!")
-    }
-    println("Completed, have a nice day!")
+    val rem3 = scanner.nextInt()
+    val rem5 = scanner.nextInt()
+    val rem7 = scanner.nextInt()
+    val age = (rem3 * 70 + rem5 * 21 + rem7 * 15) % 105
+    println("Your age is ${age}; that's a good time to start programming!")
 }
+
+fun count() {
+    println("Now I will prove to you that I can count to any number you want.")
+    val num = scanner.nextInt()
+    for (i in 0..num) {
+        print(i)
+        println("!")
+    }
+}
+
+fun test() {
+    println("Let's test your programming knowledge.")
+    println("""
+        Why do we use methods?
+        1. To repeat a statement multiple times.
+        2. To decompose a program into several small subroutines.
+        3. To determine the execution time of a program.
+        4. To interrupt the execution of a program.
+    """.trimIndent()
+    )
+  do  { val answer = scanner.nextInt()
+      if (answer != 2)
+          println("Please, try again.")
+      else  end()
+              }
+    while (answer != 2)
+
+}
+    fun end() {
+        println("Congratulations, have a nice day!")
+    }
